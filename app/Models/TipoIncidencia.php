@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formato extends Model
+class TipoIncidencia extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "nombre"
+    ];
 }

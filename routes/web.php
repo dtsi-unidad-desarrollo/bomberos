@@ -5,6 +5,7 @@ use App\Http\Controllers\{
     BomberoController,
     UserController,
     DashboardController,
+    EquipoController,
     LoginController,
 };
 
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/panel', [DashboardController::class, 'index'])->name('admin.panel.index');
 
     Route::resource('/bomberos', BomberoController::class)->names('admin.bomberos');
-    Route::resource('/equipos', UserController::class)->names('admin.equipos');
+    Route::resource('/equipos', EquipoController::class)->names('admin.equipos');
     Route::resource('/incidencias', UserController::class)->names('admin.incidencias');
     Route::resource('/formatos', UserController::class)->names('admin.formatos');
     Route::resource('/usuarios', UserController::class)->names('admin.usuarios');

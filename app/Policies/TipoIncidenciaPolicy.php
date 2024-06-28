@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Formato;
+use App\Models\TipoIncidencia;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class FormatoPolicy
+class TipoIncidenciaPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class FormatoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Formato  $formato
+     * @param  \App\Models\TipoIncidencia  $tipoIncidencia
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Formato $formato)
+    public function view(User $user, TipoIncidencia $tipoIncidencia)
     {
         //
     }
@@ -48,10 +48,10 @@ class FormatoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Formato  $formato
+     * @param  \App\Models\TipoIncidencia  $tipoIncidencia
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Formato $formato)
+    public function update(User $user, TipoIncidencia $tipoIncidencia)
     {
         //
     }
@@ -60,10 +60,10 @@ class FormatoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Formato  $formato
+     * @param  \App\Models\TipoIncidencia  $tipoIncidencia
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Formato $formato)
+    public function delete(User $user, TipoIncidencia $tipoIncidencia)
     {
         //
     }
@@ -72,10 +72,10 @@ class FormatoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Formato  $formato
+     * @param  \App\Models\TipoIncidencia  $tipoIncidencia
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Formato $formato)
+    public function restore(User $user, TipoIncidencia $tipoIncidencia)
     {
         //
     }
@@ -84,10 +84,10 @@ class FormatoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Formato  $formato
+     * @param  \App\Models\TipoIncidencia  $tipoIncidencia
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Formato $formato)
+    public function forceDelete(User $user, TipoIncidencia $tipoIncidencia)
     {
         //
     }

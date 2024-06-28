@@ -7,6 +7,7 @@ use App\Http\Requests\StoreEquipoRequest;
 use App\Http\Requests\UpdateEquipoRequest;
 use App\Models\DataDev;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class EquipoController extends Controller
 {
@@ -41,15 +42,7 @@ class EquipoController extends Controller
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -59,30 +52,23 @@ class EquipoController extends Controller
      */
     public function store(StoreEquipoRequest $request)
     {
-        //
+        try {
+            Equipo::create($request->all());
+            return back()->with([
+                "mensaje" => "El equipo se creó correctamente",
+                "estatus" => Response::HTTP_OK
+            ]);
+        } catch (\Throwable $th) {
+            return back()->with([
+                "mensaje" => "¡Error interno!, descripción del error: " . $th->getMessage(),
+                "estatus" => Response::HTTP_INTERNAL_SERVER_ERROR
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Equipo  $equipo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Equipo $equipo)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Equipo  $equipo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Equipo $equipo)
-    {
-        //
-    }
+
+  
 
     /**
      * Update the specified resource in storage.
@@ -93,7 +79,19 @@ class EquipoController extends Controller
      */
     public function update(UpdateEquipoRequest $request, Equipo $equipo)
     {
-        //
+        try {
+        
+            $equipo->update($request->all());
+            return back()->with([
+                "mensaje" => "El equipo se editó correctamente",
+                "estatus" => Response::HTTP_OK
+            ]);
+        } catch (\Throwable $th) {
+            return back()->with([
+                "mensaje" => "¡Error interno!, descripción del error: " . $th->getMessage(),
+                "estatus" => Response::HTTP_INTERNAL_SERVER_ERROR
+            ]);
+        }
     }
 
     /**
@@ -104,6 +102,20 @@ class EquipoController extends Controller
      */
     public function destroy(Equipo $equipo)
     {
-        //
+        try {
+            /** tambien se debe eliminar los datos de la tabla pibote bombero_equipos */
+
+            /** eliminamos el equipo */
+            $equipo->delete();
+            return back()->with([
+                "mensaje" => "El equipo se eliminó correctamente",
+                "estatus" => Response::HTTP_OK
+            ]);
+        } catch (\Throwable $th) {
+            return back()->with([
+                "mensaje" => "¡Error interno!, descripción del error: " . $th->getMessage(),
+                "estatus" => Response::HTTP_INTERNAL_SERVER_ERROR
+            ]);
+        }
     }
 }

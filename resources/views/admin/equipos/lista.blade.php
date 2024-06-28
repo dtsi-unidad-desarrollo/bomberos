@@ -33,6 +33,7 @@
             @include('admin.equipos.partials.modalFormCreate')
             </div>
 
+            {{-- filtro  --}}
             <div class="col-sm-6 col-xs-12">
                 <form action="{{ route('admin.equipos.index') }}" method="post">
                 @csrf
@@ -57,10 +58,9 @@
                     <thead>
                         <tr class="bg-primary text-white">
                             <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Correo</th>
+                            <th scope="col">Nombre del equipo</th>
+                            <th scope="col">Capitán</th>
+                            <th scope="col">Total de miembros</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -70,18 +70,13 @@
                             <tr>
                                 <th scope="row">{{ $equipo->id }}</th>
                                 <td>{{ $equipo->nombre }}</td>
-                                <td>{{ $equipo->cedula }}</td>
-                                <td>{{ $equipo->telefono }}</td>
-                                <td class="text-break">{{ $equipo->correo }}</td>
+                                <td>{{ $equipo->capitan }}</td>
+                                <td>{{ $equipo->total_miembros }}</td>
+                             
 
                                 <td>
                                     @include('admin.equipos.partials.modalVer')
-                                    
-                                    <a href="{{ route('admin.equipos.edit', $equipo->id) }}">
-                                        <i class="bi bi-pencil"></i>
-                                    </a>
-
-
+                                    @include('admin.equipos.partials.modalEditar')
                                     @include('admin.equipos.partials.modalEliminar')
 
 

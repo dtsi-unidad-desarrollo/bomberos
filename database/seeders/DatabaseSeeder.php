@@ -3,15 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Database\Seeders\{
-    // UsuarioSeeder,
-    UserSeeder,
-    ProfesoreSeeder,
-    EstudianteSeeder,
-    DificultadeSeeder,
-    NiveleSeeder,
-    ConceptoSeeder
-};
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(PermisoSeeder::class);
         $this->call(RolPermisoSeeder::class);
+        $this->call(BomberoSeeder::class);
+        $this->call(EquipoSeeder::class);
     }
 }

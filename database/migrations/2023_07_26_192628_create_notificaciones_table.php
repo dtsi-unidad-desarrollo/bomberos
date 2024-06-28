@@ -15,7 +15,6 @@ class CreateNotificacionesTable extends Migration
     {
         Schema::create('notificaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('cedula', 35)->nullable();
             $table->string('descripcion', 155)->nullable();
             $table->string('fecha', 35)->nullable();
             $table->timestamps();
